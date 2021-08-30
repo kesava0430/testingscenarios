@@ -1,15 +1,14 @@
 package scenarios;
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
 
 public class scenario1 {
 	WebDriver driver;
+	scenarioutil scenarioutil = new scenarioutil();
     @BeforeTest
-    public void triggerringbrowser() {
-    	System.out.println("launching chrome browser"); 
-        System.setProperty("webdriver.chrome.driver", scenarioutil.driverPath);
-    	 driver = new ChromeDriver();
+    public void triggerringbrowser() {   	
+  	  driver = scenarioutil.gettriggeringbrowser();
+  	  
     }
      
   @Test

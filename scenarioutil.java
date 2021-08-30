@@ -1,12 +1,19 @@
 package scenarios;
 import java.util.List;
 import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 public class scenarioutil {
-    public static final String baseUrl = "https://www.channelnewsasia.com/news/international";
+    public final String baseUrl = "https://www.channelnewsasia.com/news/international";
     public static final String driverPath = "/Users/kesava-2647/Desktop/seleniumjars/chromedriver"; 
     
-    public static void scrollingandverifying(WebDriver driver) {
+    public WebDriver gettriggeringbrowser() {
+    	System.out.println("launching chrome browser"); 
+        System.setProperty("webdriver.chrome.driver", scenarioutil.driverPath);
+    	 return new ChromeDriver();
+    }
+    
+    public void scrollingandverifying(WebDriver driver) {
     	 JavascriptExecutor js = (JavascriptExecutor) driver;
    	  for(int i=0 ;i<=3;i++) {
    		  js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
