@@ -1,0 +1,30 @@
+package scenarios;
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.*;
+
+public class scenario2 {
+	WebDriver driver;
+    @BeforeTest
+    public void triggerringbrowser() {
+    	System.out.println("launching chrome browser"); 
+        System.setProperty("webdriver.chrome.driver", scenarioutil.driverPath);
+    	 driver = new ChromeDriver();
+    }
+     
+  @Test
+  public void changingtosingopore() { 
+	  driver.get(scenarioutil.baseUrl);
+	  driver.findElement(By.cssSelector("#main-nav > ul > li.main-menu__item.is-hide-link > span")).click();
+	  driver.findElement(By.cssSelector(".layout-container > div:nth-child(3) > section > div > div > div > div > div.modal__content__col.modal__content__col--one > div.modal__secondary-menu > ul > li:nth-child(1) > ul > li:nth-child(1) > a")).click();
+	  driver.findElement(By.cssSelector("div.card-object.card-object--.top-stories-primary-section__item > div.card-object__content.card-object__content-- > div > div > h3 > a")).click();
+  }
+  @Test
+  public void scrollingfornewtaskstoopen() {
+	  scenarioutil.scrollingandverifying(driver);  
+  }
+  @AfterTest
+  public void closingbrowser() {
+   driver.close(); 
+  }
+}
